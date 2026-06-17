@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMGC – Ontario Malayalee Golden Club</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OMGC – Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ── Reset & Variables ── */
+        /* ── Shared styles ── */
         :root {
             --primary: #1e2a2f;
             --secondary: #e8c87a;
@@ -16,16 +15,9 @@
             --text: #2d3e43;
             --gold: #b8860b;
             --shadow: 0 8px 30px rgba(0,0,0,0.08);
-            --transition: 0.3s ease;
             --font-size: 16px;
-            --contrast: #fff;
-            --bg-contrast: #1e2a2f;
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
             background: var(--light);
@@ -33,20 +25,16 @@
             font-size: var(--font-size);
             line-height: 1.7;
             transition: background 0.3s, color 0.3s;
-            padding-top: 70px; /* for fixed nav */
+            padding-top: 70px;
         }
-        /* High Contrast Mode */
         body.high-contrast {
-            background: #000;
-            color: #fff;
+            background: #000; color: #fff;
         }
         body.high-contrast .container,
         body.high-contrast .card,
         body.high-contrast .value-card,
         body.high-contrast .section-highlight {
-            background: #111 !important;
-            color: #fff !important;
-            border-color: #444 !important;
+            background: #111 !important; color: #fff !important; border-color: #444 !important;
         }
         body.high-contrast a { color: #ffd700; }
         body.high-contrast .badge,
@@ -60,7 +48,6 @@
             padding: 2rem 2rem 1.5rem;
             transition: background 0.3s, color 0.3s;
         }
-        /* ── Typography ── */
         h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; }
         h1 { font-size: 2.8rem; }
         h2 { font-size: 2.2rem; border-bottom: 4px solid var(--secondary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; display: inline-block; }
@@ -70,262 +57,117 @@
         a { color: var(--gold); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        /* ── Navigation ── */
+        /* Navbar */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: var(--primary);
-            color: #fff;
+            position: fixed; top:0; left:0; width:100%;
+            background: var(--primary); color: #fff;
             padding: 0.5rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+            z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-        .navbar .brand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
+        .navbar .brand { display: flex; align-items: center; gap: 0.5rem; font-size: 1.4rem; font-weight: 600; }
         .navbar .brand i { color: var(--secondary); }
         .navbar .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            list-style: none;
+            display: flex; flex-wrap: wrap; gap: 1rem; list-style: none;
         }
         .navbar .nav-links a {
-            color: #fff;
-            font-size: 0.9rem;
-            padding: 0.3rem 0.6rem;
-            border-radius: 20px;
-            transition: background 0.2s;
+            color: #fff; font-size: 0.9rem; padding: 0.3rem 0.6rem; border-radius: 20px; transition: 0.2s;
         }
-        .navbar .nav-links a:hover {
-            background: rgba(255,255,255,0.15);
-            text-decoration: none;
-        }
-        .accessibility-tools {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
+        .navbar .nav-links a:hover { background: rgba(255,255,255,0.15); text-decoration: none; }
+        .accessibility-tools { display: flex; gap: 0.5rem; align-items: center; }
         .accessibility-tools button {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.3);
-            color: #fff;
-            border-radius: 20px;
-            padding: 0.2rem 0.8rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: 0.2s;
+            background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff;
+            border-radius: 20px; padding: 0.2rem 0.8rem; cursor: pointer; font-size: 0.8rem;
         }
-        .accessibility-tools button:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+        .accessibility-tools button:hover { background: rgba(255,255,255,0.2); }
+        .menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
         @media (max-width: 900px) {
-            .navbar .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                padding: 1rem 0;
-            }
+            .navbar .nav-links { display: none; width:100%; flex-direction:column; align-items:center; padding:1rem 0; }
             .navbar .nav-links.open { display: flex; }
             .menu-toggle { display: block; }
             .accessibility-tools { order: 2; }
         }
 
-        /* ── Sections ── */
-        .section {
-            padding: 2rem 0;
-            border-bottom: 1px solid #eee;
-        }
+        /* Sections */
+        .section { padding: 2rem 0; border-bottom: 1px solid #eee; }
         .section:last-of-type { border-bottom: none; }
-        .section-highlight {
-            background: var(--card-bg);
-            border-radius: 2rem;
-            padding: 2rem;
-        }
+        .section-highlight { background: var(--card-bg); border-radius: 2rem; padding: 2rem; }
         .grid-2, .grid-3, .grid-4 {
-            display: grid;
-            gap: 1.8rem;
-            margin: 1.5rem 0;
+            display: grid; gap: 1.8rem; margin: 1.5rem 0;
         }
         .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); }
         .grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
         .grid-4 { grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); }
         .card {
-            background: #fff;
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-            border: 1px solid #ede8db;
+            background: #fff; border-radius: 1.5rem; padding: 1.5rem;
+            box-shadow: var(--shadow); border: 1px solid #ede8db;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
         .card .icon { font-size: 2.2rem; display: block; margin-bottom: 0.5rem; }
         .value-card {
-            background: #fff;
-            border-radius: 1.2rem;
-            padding: 1.2rem;
-            text-align: center;
-            border: 1px solid #e8e0d0;
-            transition: border-color 0.2s;
+            background: #fff; border-radius: 1.2rem; padding: 1.2rem;
+            text-align: center; border: 1px solid #e8e0d0;
         }
         .value-card:hover { border-color: var(--gold); }
         .value-card .icon { font-size: 2.5rem; display: block; margin-bottom: 0.3rem; }
 
-        /* ── Guiding Ribbon ── */
         .guiding-ribbon {
             background: linear-gradient(135deg, var(--primary), #2c3e42);
             color: #f5ede0;
             padding: 1rem 2rem;
             border-radius: 60px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
             gap: 0.75rem 1.8rem;
             margin: 1.5rem 0;
         }
-        .guiding-ribbon .pillars {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1.2rem;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
+        .guiding-ribbon .pillars { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; font-weight: 500; font-size: 1.1rem; }
         .guiding-ribbon .pillars span { color: var(--secondary); }
         .guiding-ribbon .pillars .sep { color: #6b8a8a; }
 
-        /* ── Buttons ── */
         .btn {
-            display: inline-block;
-            background: var(--secondary);
-            color: var(--primary);
-            padding: 0.6rem 1.4rem;
-            border-radius: 40px;
-            font-weight: 600;
-            transition: 0.2s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
+            display: inline-block; background: var(--secondary); color: var(--primary);
+            padding: 0.6rem 1.4rem; border-radius: 40px; font-weight: 600;
+            transition: 0.2s; border: none; cursor: pointer; font-size: 1rem;
         }
-        .btn:hover {
-            background: #d4b86a;
-            transform: scale(1.02);
-            text-decoration: none;
-        }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--secondary);
-            color: var(--secondary);
-        }
+        .btn:hover { background: #d4b86a; transform: scale(1.02); text-decoration: none; }
+        .btn-outline { background: transparent; border: 2px solid var(--secondary); color: var(--secondary); }
         .btn-outline:hover { background: var(--secondary); color: var(--primary); }
 
-        /* ── Hero ── */
-        .hero {
-            text-align: center;
-            padding: 2rem 0;
-        }
+        .hero { text-align: center; padding: 2rem 0; }
         .hero h1 { font-size: 3rem; }
         .hero p { font-size: 1.3rem; max-width: 700px; margin: 1rem auto; }
-        .hero .quick-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
+        .hero .quick-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0; }
         .hero .quick-links .btn { min-width: 140px; }
 
-        /* ── Featured grid ── */
         .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1.5rem; margin: 1.5rem 0;
         }
-        .feature-item {
-            background: var(--card-bg);
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            text-align: center;
-        }
+        .feature-item { background: var(--card-bg); border-radius: 1.5rem; padding: 1.5rem; text-align: center; }
 
-        /* ── Forms ── */
         .form-group { margin-bottom: 1rem; }
         .form-group label { display: block; font-weight: 600; margin-bottom: 0.2rem; }
         .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 0.6rem 1rem;
-            border-radius: 30px;
-            border: 1px solid #ddd;
-            font-family: inherit;
-            font-size: 1rem;
+            width: 100%; padding: 0.6rem 1rem; border-radius: 30px;
+            border: 1px solid #ddd; font-family: inherit; font-size: 1rem;
         }
         .form-group textarea { min-height: 100px; }
 
-        /* ── Tabs ── */
-        .tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
-        .tab-btn {
-            background: #eee;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-        .tab-btn.active { background: var(--secondary); color: var(--primary); }
-        .tab-content { display: none; padding: 1rem 0; }
-        .tab-content.active { display: block; }
-
-        /* ── Events list ── */
-        .event-item {
-            display: flex;
-            gap: 1rem;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #eee;
-        }
+        .event-item { display: flex; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid #eee; }
         .event-item .date {
-            background: var(--secondary);
-            color: var(--primary);
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-weight: 600;
-            white-space: nowrap;
+            background: var(--secondary); color: var(--primary);
+            padding: 0.2rem 0.8rem; border-radius: 20px; font-weight: 600; white-space: nowrap;
         }
 
-        /* ── Footer ── */
         .footer {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
+            margin-top: 2rem; padding-top: 1.5rem;
             border-top: 2px solid #f0eadc;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-            color: #6b7b7a;
+            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+            font-size: 0.9rem; color: #6b7b7a;
         }
+        .footer .social a { margin-left: 1rem; color: #6b7b7a; }
+        .footer .social a:hover { color: var(--gold); }
 
-        /* ── Responsive ── */
         @media (max-width: 768px) {
             body { padding-top: 60px; }
             .container { padding: 1rem; }
@@ -334,36 +176,30 @@
             .navbar { padding: 0.5rem 1rem; }
             .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
         }
-
-        /* ── Utils ── */
         .text-center { text-align: center; }
         .mt-1 { margin-top: 1rem; }
         .mb-1 { margin-bottom: 1rem; }
-        .hidden { display: none; }
     </style>
 </head>
 <body>
 
-    <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+    <!-- ═══ NAVBAR ═══ -->
     <nav class="navbar" id="navbar">
-        <div class="brand">
-            <i class="fas fa-leaf"></i>
-            <span>OMGC</span>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+        <div class="brand"><i class="fas fa-leaf"></i><span>OMGC</span></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#membership">Membership</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#wellness">Wellness</a></li>
-            <li><a href="#culture">Culture</a></li>
-            <li><a href="#learning">Learning</a></li>
-            <li><a href="#volunteer">Volunteer</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="wellness.html">Wellness</a></li>
+            <li><a href="culture.html">Culture</a></li>
+            <li><a href="learning.html">Learning</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="partnerships.html">Partnerships</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="accessibility-tools">
             <button id="fontToggle" aria-label="Toggle font size">A+</button>
@@ -372,9 +208,8 @@
     </nav>
 
     <div class="container">
-
-        <!-- ═══════════════════ HOME ═══════════════════ -->
-        <section id="home" class="section hero">
+        <!-- ═══ HOME CONTENT ═══ -->
+        <section class="section hero">
             <div class="guiding-ribbon">
                 <span style="font-weight:400; text-transform:uppercase; letter-spacing:1px; font-size:0.8rem; opacity:0.8;">Our Guiding Principle</span>
                 <div class="pillars">
@@ -393,451 +228,52 @@
                 A vibrant and caring community where Malayalee seniors stay connected, supported, active, and enriched through friendship and shared heritage.
             </p>
             <div class="quick-links">
-                <a href="#membership" class="btn"><i class="fas fa-user-plus"></i> Become a Member</a>
-                <a href="#events" class="btn"><i class="fas fa-calendar-alt"></i> Upcoming Events</a>
-                <a href="#volunteer" class="btn"><i class="fas fa-hands-helping"></i> Volunteer</a>
-                <a href="#contact" class="btn"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="membership.html" class="btn"><i class="fas fa-user-plus"></i> Become a Member</a>
+                <a href="events.html" class="btn"><i class="fas fa-calendar-alt"></i> Upcoming Events</a>
+                <a href="volunteer.html" class="btn"><i class="fas fa-hands-helping"></i> Volunteer</a>
+                <a href="contact.html" class="btn"><i class="fas fa-envelope"></i> Contact Us</a>
                 <a href="#" class="btn btn-outline"><i class="fas fa-donate"></i> Donate</a>
             </div>
-            <!-- Featured Sections -->
             <div class="feature-grid">
                 <div class="feature-item">
                     <i class="fas fa-calendar-check fa-2x" style="color:var(--gold);"></i>
                     <h4>Upcoming Events</h4>
                     <p>Monthly gatherings, Onam, Christmas, Vishu &amp; more.</p>
-                    <a href="#events" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">View All</a>
+                    <a href="events.html" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">View All</a>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-newspaper fa-2x" style="color:var(--gold);"></i>
                     <h4>Latest News</h4>
                     <p>President's message, community announcements, member milestones.</p>
-                    <a href="#news" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">Read More</a>
+                    <a href="news.html" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">Read More</a>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-star fa-2x" style="color:var(--gold);"></i>
                     <h4>Member Spotlight</h4>
                     <p>Celebrating our members and their contributions.</p>
-                    <a href="#gallery" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">View</a>
+                    <a href="gallery.html" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">View</a>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-image fa-2x" style="color:var(--gold);"></i>
                     <h4>Recent Photos</h4>
                     <p>Memories from our events and gatherings.</p>
-                    <a href="#gallery" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">Gallery</a>
+                    <a href="gallery.html" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">Gallery</a>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-heartbeat fa-2x" style="color:var(--gold);"></i>
                     <h4>Wellness Tips</h4>
                     <p>Healthy aging, exercise, nutrition, mental wellness.</p>
-                    <a href="#wellness" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">Learn More</a>
+                    <a href="wellness.html" class="btn" style="padding:0.3rem 1.2rem; font-size:0.9rem;">Learn More</a>
                 </div>
             </div>
         </section>
 
-        <!-- ═══════════════════ ABOUT ═══════════════════ -->
-        <section id="about" class="section">
-            <h2>About Us</h2>
-            <h3>Our Story</h3>
-            <p>OMGC was founded to create a supportive community for Malayalee seniors across Ontario. We provide a welcoming space where members can reconnect with their roots, build lasting friendships, and enjoy an active, fulfilling life.</p>
-            <div class="grid-2">
-                <div class="card">
-                    <span class="icon">🎯</span>
-                    <h4>Purpose</h4>
-                    <p>OMGC exists to provide a welcoming community where Malayalee seniors can stay connected, support one another, celebrate their heritage, and enjoy meaningful friendships and activities.</p>
-                </div>
-                <div class="card">
-                    <span class="icon">🔭</span>
-                    <h4>Vision</h4>
-                    <p>To be a vibrant and caring community where Malayalee seniors remain connected, valued, active, and enriched through friendship, fellowship, and shared cultural heritage. <strong>Serviced &amp; Supported</strong></p>
-                </div>
-                <div class="card">
-                    <span class="icon">🚀</span>
-                    <h4>Mission</h4>
-                    <p>To bring Malayalee seniors together by fostering friendship, mutual support, lifelong engagement, and cultural connection through meaningful social, educational, cultural, and recreational activities.</p>
-                </div>
-            </div>
-
-            <h3>Core Values</h3>
-            <div class="grid-3">
-                <div class="value-card"><span class="icon">🤝</span><h4>Friendship &amp; Fellowship</h4><p>Building lasting relationships and belonging.</p></div>
-                <div class="value-card"><span class="icon">❤️</span><h4>Respect &amp; Inclusiveness</h4><p>Welcoming all with dignity and respect.</p></div>
-                <div class="value-card"><span class="icon">🫂</span><h4>Service &amp; Support</h4><p>Caring for one another through mutual support.</p></div>
-                <div class="value-card"><span class="icon">🎭</span><h4>Culture &amp; Heritage</h4><p>Celebrating Malayalee traditions and values.</p></div>
-                <div class="value-card"><span class="icon">🌱</span><h4>Active Living &amp; Lifelong Learning</h4><p>Encouraging health, growth, and participation.</p></div>
-            </div>
-
-            <h3>Strategic Objectives</h3>
-            <div class="grid-3">
-                <div class="card"><span class="icon">🔗</span><h4>1. Connect</h4><p>Strengthen social connections through regular meetings and community events.</p></div>
-                <div class="card"><span class="icon">💛</span><h4>2. Support</h4><p>Promote well‑being and mutual support through life’s challenges and celebrations.</p></div>
-                <div class="card"><span class="icon">🎉</span><h4>3. Celebrate</h4><p>Preserve and promote Malayalee culture, language, and heritage.</p></div>
-                <div class="card"><span class="icon">⚡</span><h4>4. Engage</h4><p>Encourage active living through social, cultural, educational, and recreational activities.</p></div>
-                <div class="card"><span class="icon">🌳</span><h4>5. Grow</h4><p>Ensure sustainability through volunteer development, succession planning, and partnerships.</p></div>
-            </div>
-
-            <h3>Board of Directors</h3>
-            <div class="grid-3">
-                <div class="card"><i class="fas fa-user-circle fa-2x" style="color:var(--gold);"></i><h4>President</h4><p>Name Placeholder</p></div>
-                <div class="card"><i class="fas fa-user-circle fa-2x" style="color:var(--gold);"></i><h4>Vice President</h4><p>Name Placeholder</p></div>
-                <div class="card"><i class="fas fa-user-circle fa-2x" style="color:var(--gold);"></i><h4>Secretary</h4><p>Name Placeholder</p></div>
-                <div class="card"><i class="fas fa-user-circle fa-2x" style="color:var(--gold);"></i><h4>Treasurer</h4><p>Name Placeholder</p></div>
-                <div class="card"><i class="fas fa-user-circle fa-2x" style="color:var(--gold);"></i><h4>Directors</h4><p>Members at large</p></div>
-            </div>
-
-            <h3>Committees</h3>
-            <div class="grid-3">
-                <div class="card"><i class="fas fa-calendar-alt"></i><h4>Events</h4><p>Organizes all social and cultural events.</p></div>
-                <div class="card"><i class="fas fa-users"></i><h4>Membership</h4><p>Manages member registration and engagement.</p></div>
-                <div class="card"><i class="fas fa-hand-holding-heart"></i><h4>Volunteer</h4><p>Coordinates volunteer opportunities and recognition.</p></div>
-                <div class="card"><i class="fas fa-bullhorn"></i><h4>Communications</h4><p>Handles newsletters, social media, and website.</p></div>
-                <div class="card"><i class="fas fa-gavel"></i><h4>Governance</h4><p>Oversees bylaws, policies, and board operations.</p></div>
-            </div>
-            <p><strong>Governance Documents:</strong> Constitution, Bylaws, Policies, Annual Reports (coming soon).</p>
-        </section>
-
-        <!-- ═══════════════════ MEMBERSHIP ═══════════════════ -->
-        <section id="membership" class="section">
-            <h2>Membership Portal</h2>
-            <p>Join our community or renew your membership. Fill out the form below.</p>
-            <div class="grid-2">
-                <div class="card">
-                    <h4>Online Membership Application</h4>
-                    <form id="membershipForm" onsubmit="alert('Membership submitted (demo)'); return false;">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" placeholder="Your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="Email address" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" placeholder="Phone number">
-                        </div>
-                        <div class="form-group">
-                            <label>Family Information</label>
-                            <input type="text" placeholder="Spouse/children (optional)">
-                        </div>
-                        <div class="form-group">
-                            <label>Interests</label>
-                            <select>
-                                <option>Select interests</option>
-                                <option>Social events</option>
-                                <option>Cultural programs</option>
-                                <option>Wellness activities</option>
-                                <option>Volunteering</option>
-                                <option>Learning sessions</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Volunteer Interests</label>
-                            <select>
-                                <option>Select an area</option>
-                                <option>Event support</option>
-                                <option>Hospitality</option>
-                                <option>Communications</option>
-                                <option>Member outreach</option>
-                                <option>Transportation</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn">Submit Application</button>
-                    </form>
-                </div>
-                <div>
-                    <div class="card">
-                        <h4>Member Directory (Private)</h4>
-                        <p>Opt‑in directory to connect with fellow members. (Coming soon)</p>
-                    </div>
-                    <div class="card">
-                        <h4>Member Profile</h4>
-                        <p>Update your information, upload photo, list interests.</p>
-                        <button class="btn" onclick="alert('Profile update (demo)');">Update Profile</button>
-                    </div>
-                    <div class="card">
-                        <h4>Membership Renewal</h4>
-                        <p>Renew your membership online.</p>
-                        <button class="btn" onclick="alert('Renewal form (demo)');">Renew Now</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ EVENTS ═══════════════════ -->
-        <section id="events" class="section">
-            <h2>Events &amp; Activities</h2>
-            <div class="grid-2">
-                <div>
-                    <h3>Upcoming Events</h3>
-                    <div class="event-item"><span class="date">Jun 20</span><span>Monthly Social Gathering – 2:00 PM</span></div>
-                    <div class="event-item"><span class="date">Jul 15</span><span>Onam Celebration – Potluck &amp; Cultural Program</span></div>
-                    <div class="event-item"><span class="date">Aug 10</span><span>Seniors Day Out – Picnic</span></div>
-                    <div class="event-item"><span class="date">Sep 5</span><span>Vishu Celebration – Virtual &amp; In‑person</span></div>
-                    <div class="event-item"><span class="date">Oct 20</span><span>Christmas Dinner &amp; Cultural Show</span></div>
-                    <p><a href="#" class="btn" style="margin-top:0.5rem;">View Full Calendar</a></p>
-                </div>
-                <div>
-                    <h3>Register for an Event</h3>
-                    <form onsubmit="alert('Registration submitted (demo)'); return false;">
-                        <div class="form-group">
-                            <label>Select Event</label>
-                            <select>
-                                <option>Monthly Social Gathering – Jun 20</option>
-                                <option>Onam Celebration – Jul 15</option>
-                                <option>Seniors Day Out – Aug 10</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="Email" required>
-                        </div>
-                        <button type="submit" class="btn">Register</button>
-                    </form>
-                    <p style="margin-top:1rem;"><i class="fas fa-bell"></i> Event reminders via email / WhatsApp.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ WELLNESS ═══════════════════ -->
-        <section id="wellness" class="section section-highlight">
-            <h2>Wellness &amp; Support Hub</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fas fa-heartbeat fa-2x" style="color:var(--gold);"></i>
-                    <h4>Health &amp; Wellness Resources</h4>
-                    <ul style="padding-left:1.2rem;">
-                        <li>Healthy Aging Tips</li>
-                        <li>Exercise &amp; Fitness</li>
-                        <li>Nutrition Guidance</li>
-                        <li>Mental Wellness</li>
-                        <li>Fall Prevention</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <i class="fas fa-phone-alt fa-2x" style="color:var(--gold);"></i>
-                    <h4>Senior Services Directory</h4>
-                    <ul style="padding-left:1.2rem;">
-                        <li>Health Services</li>
-                        <li>Seniors Benefits</li>
-                        <li>Transportation</li>
-                        <li>Community Support</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <i class="fas fa-hand-holding-heart fa-2x" style="color:var(--gold);"></i>
-                    <h4>Member Care Program</h4>
-                    <ul style="padding-left:1.2rem;">
-                        <li>Hospital Visits</li>
-                        <li>Bereavement Support</li>
-                        <li>Volunteer Outreach</li>
-                        <li>Emergency Contact Program</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ CULTURE ═══════════════════ -->
-        <section id="culture" class="section">
-            <h2>Culture &amp; Heritage Centre</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fas fa-book-open fa-2x" style="color:var(--gold);"></i>
-                    <h4>Malayalam Heritage</h4>
-                    <p>Articles, stories, and traditions.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-utensils fa-2x" style="color:var(--gold);"></i>
-                    <h4>Traditional Recipes</h4>
-                    <p>Member‑contributed recipes from Kerala.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-history fa-2x" style="color:var(--gold);"></i>
-                    <h4>Oral History Project</h4>
-                    <p>Recording stories from our seniors.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-images fa-2x" style="color:var(--gold);"></i>
-                    <h4>Photo &amp; Video Archive</h4>
-                    <p>Historical photos and celebration videos.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ LEARNING ═══════════════════ -->
-        <section id="learning" class="section section-highlight">
-            <h2>Learning &amp; Education Centre</h2>
-            <div class="grid-2">
-                <div>
-                    <h4>Educational Sessions</h4>
-                    <ul>
-                        <li>Technology Workshops</li>
-                        <li>Health &amp; Wellness Seminars</li>
-                        <li>Financial Planning</li>
-                        <li>Estate Planning</li>
-                        <li>Government Benefits</li>
-                    </ul>
-                    <h4>Technology Help Corner</h4>
-                    <ul>
-                        <li>Smartphones &amp; Apps</li>
-                        <li>WhatsApp &amp; Video Calls</li>
-                        <li>Zoom Meetings</li>
-                        <li>Online Banking Safety</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Resource Library</h4>
-                    <p>PDFs, guides, and recorded presentations available for members.</p>
-                    <button class="btn" onclick="alert('Resource library (demo)');">Access Library</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ VOLUNTEER ═══════════════════ -->
-        <section id="volunteer" class="section">
-            <h2>Volunteer &amp; Leadership Centre</h2>
-            <div class="grid-2">
-                <div>
-                    <h4>Volunteer Opportunities</h4>
-                    <ul>
-                        <li>Event Support</li>
-                        <li>Hospitality</li>
-                        <li>Communications</li>
-                        <li>Member Outreach</li>
-                        <li>Transportation</li>
-                    </ul>
-                    <form onsubmit="alert('Volunteer signup submitted (demo)'); return false;">
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Area of Interest</label>
-                            <select>
-                                <option>Event Support</option>
-                                <option>Hospitality</option>
-                                <option>Communications</option>
-                                <option>Member Outreach</option>
-                                <option>Transportation</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn">Sign Up</button>
-                    </form>
-                </div>
-                <div>
-                    <div class="card">
-                        <h4>Leadership Development</h4>
-                        <p>Express interest in future leadership roles.</p>
-                        <button class="btn" onclick="alert('Leadership interest form (demo)');">Learn More</button>
-                    </div>
-                    <div class="card">
-                        <h4>Volunteer Recognition</h4>
-                        <p>Celebrating our dedicated volunteers.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ PARTNERSHIPS ═══════════════════ -->
-        <section id="partnerships" class="section section-highlight">
-            <h2>Community Partnerships</h2>
-            <div class="grid-3">
-                <div class="card"><h4>Malayalee Organizations</h4><p>Partner with other Malayalee groups across Ontario.</p></div>
-                <div class="card"><h4>Community Announcements</h4><p>Collaborative events and joint programs.</p></div>
-                <div class="card"><h4>Joint Programs</h4><p>Promote activities that strengthen community bonds.</p></div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ NEWS ═══════════════════ -->
-        <section id="news" class="section">
-            <h2>News &amp; Communications</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h4>Monthly Newsletter</h4>
-                    <p>Archive of all newsletters.</p>
-                    <button class="btn" onclick="alert('Newsletter archive (demo)');">View Newsletters</button>
-                </div>
-                <div class="card">
-                    <h4>President's Message</h4>
-                    <p>Regular updates from the President.</p>
-                </div>
-                <div class="card">
-                    <h4>Community News</h4>
-                    <p>Member achievements, birthdays, milestones.</p>
-                </div>
-                <div class="card">
-                    <h4>Condolence Notices</h4>
-                    <p>When appropriate and approved.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ GALLERY ═══════════════════ -->
-        <section id="gallery" class="section section-highlight">
-            <h2>Media Gallery</h2>
-            <div class="grid-3">
-                <div class="card text-center"><i class="fas fa-camera fa-3x" style="color:var(--gold);"></i><h4>Photos</h4><p>Organized by year and event.</p></div>
-                <div class="card text-center"><i class="fas fa-video fa-3x" style="color:var(--gold);"></i><h4>Videos</h4><p>Cultural performances and celebrations.</p></div>
-                <div class="card text-center"><i class="fas fa-memory fa-3x" style="color:var(--gold);"></i><h4>Member Memories</h4><p>Special moments shared by members.</p></div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ CONTACT ═══════════════════ -->
-        <section id="contact" class="section">
-            <h2>Contact &amp; Support</h2>
-            <div class="grid-2">
-                <div>
-                    <h4>Get in Touch</h4>
-                    <form onsubmit="alert('Message sent (demo)'); return false;">
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Subject</label>
-                            <select>
-                                <option>General Inquiry</option>
-                                <option>Volunteer Inquiry</option>
-                                <option>Membership Inquiry</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea placeholder="Your message"></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send</button>
-                    </form>
-                </div>
-                <div>
-                    <div class="card">
-                        <h4>Board Contact Information</h4>
-                        <p><i class="fas fa-envelope"></i> info@omgc.ca (example)</p>
-                        <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Ontario, Canada</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════ FOOTER ═══════════════════ -->
+        <!-- ═══ FOOTER ═══ -->
         <footer class="footer">
             <div>
                 <i class="fas fa-leaf" style="color:var(--gold);"></i>
                 Ontario Malayalee Golden Club &bull; <span id="year"></span>
-                <br>
-                <span style="font-size:0.8rem;">Connect • Support • Celebrate • Enjoy • Grow</span>
+                <br><span style="font-size:0.8rem;">Connect • Support • Celebrate • Enjoy • Grow</span>
             </div>
             <div class="social">
                 <a href="#"><i class="fab fa-facebook"></i></a>
@@ -846,48 +282,32 @@
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
         </footer>
-
-    </div> <!-- container -->
+    </div>
 
     <script>
-        // ── Navigation toggle (mobile) ──
+        // ── Mobile menu toggle ──
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('navLinks').classList.toggle('open');
         });
-
-        // ── Font size toggle ──
+        // ── Font size ──
         let fontSize = 16;
         document.getElementById('fontToggle').addEventListener('click', function() {
             fontSize = fontSize === 16 ? 20 : (fontSize === 20 ? 24 : 16);
             document.body.style.fontSize = fontSize + 'px';
-            // Also update root variable for consistency
             document.documentElement.style.setProperty('--font-size', fontSize + 'px');
         });
-
-        // ── High contrast toggle ──
+        // ── High contrast ──
         document.getElementById('contrastToggle').addEventListener('click', function() {
             document.body.classList.toggle('high-contrast');
         });
-
-        // ── Auto-update year ──
+        // ── Year ──
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // ── Smooth scroll for anchor links ──
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    // close mobile menu if open
-                    document.getElementById('navLinks').classList.remove('open');
-                }
+        // ── Close mobile menu on link click ──
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
             });
         });
-
-        // ── Tabs (demo for future use) ──
-        // Example: You can add tab groups if needed.
-        console.log('OMGC website loaded.');
     </script>
 </body>
 </html>
